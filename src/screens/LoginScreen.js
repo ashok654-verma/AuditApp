@@ -8,9 +8,10 @@ import strings from '../constants/strings';
 export default function LoginScreen({ navigation }) {
   const { setRole } = useContext(RoleContext);
 
+  // handle role selection
   const handleSelectRole = async (selectedRole) => {
-    await storeData('userRole', selectedRole);
     setRole(selectedRole);
+    await storeData('userRole', selectedRole);
     navigation.replace('AuditHistory');
   };
 
@@ -19,23 +20,23 @@ export default function LoginScreen({ navigation }) {
       <Text style={styles.title}>{strings.select_your_role}</Text>
       {['Admin', 'Auditor', 'Viewer'].map((role) => (
         <TouchableOpacity
-          key={role}
-          style={styles.roleButton}
-          onPress={() => handleSelectRole(role)}
+        key={role}
+        style={styles.roleButton}
+        onPress={() => handleSelectRole(role)}
         >
           <Text style={styles.buttonText}>{role}</Text>
         </TouchableOpacity>
       ))}
-    </View>
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20
+    padding: 20,
+    justifyContent :'center',
+    alignItems :'center'
   },
   title: {
     fontSize: 24,
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 18,
     fontWeight: '500'
   },

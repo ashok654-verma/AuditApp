@@ -7,10 +7,15 @@ export default {
     submit : "Submit Audit",
     audit_history : "Audit History",
     no_audit_found : "No Audit found",
-    delete_audit : "delete audit",
+    delete_audit : "Delete Audit",
     date : "Date",
     comments : "Comments",
     rating : "Rating",
     audit_summary : "Audit Summary",
-    cleanlines : "Cleanliness"
+    cleanlines : "Cleanliness",
+    step : "Steps",
+    safety : "Safety",
+    compliance : "Compliance",
+    time : "Time",
+    audit_form : "Audit Form"
 }

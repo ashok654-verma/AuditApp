@@ -7,6 +7,7 @@ import LogoutButton from '../components/LogoutBtn';
 import ActionButton from '../components/ActionButton';
 import colors from '../constants/colors';
 import strings from '../constants/strings';
+
 export default function AuditHistoryScreen() {
   const [audits, setAudits] = useState([]);
   const { role } = useContext(RoleContext);
@@ -83,11 +84,11 @@ export default function AuditHistoryScreen() {
       )}
 
         <ActionButton
-          title="View Policy Manual"
+          title="View Policy"
           onPress={navigateToPolicyManualScreen}
           backgroundColor={colors.blue}
-          style={{marginTop :8}}
-          textStyle={{ fontSize: 18, color: colors.white }}
+          style={{marginTop :8, padding: 12}}
+          textStyle={{ fontSize: 16, color: colors.white }}
         />
 
     </SafeAreaView>
@@ -99,7 +100,10 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop : Platform.OS === 'android' ? 40 : 0
   },
-  heading: { fontSize: 20, fontWeight: 'bold' },
+  heading: {
+    fontSize: 20,
+    fontWeight: 'bold'
+   },
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -120,13 +124,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 18,
     fontWeight: '500',
-    marginTop: 24
+    marginTop: 24,
+    marginBottom:12
   },
   elevationStyle: {
-    // Android
     elevation: 4,
-
-    // iOS
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,

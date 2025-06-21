@@ -12,8 +12,7 @@ export default function RatingComponent({ value, onChange, max = 5 }) {
                     <TouchableOpacity
                         key={rating}
                         style={[styles.circle, selected && styles.selected]}
-                        onPress={() => onChange(rating)}
-                    >
+                        onPress={() => onChange(rating)}>
                         <Text style={selected ? styles.selectedText : styles.text}>{rating}</Text>
                     </TouchableOpacity>
                 );

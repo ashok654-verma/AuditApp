@@ -28,7 +28,7 @@ export default function AuditFormScreen({ navigation }) {
     comments: '',
   });
   const isReadOnly = role !== 'Auditor';
- 
+
   const goNext = () => {
     if (step === 1 && !formData.rating) {
       Alert.alert('Validation', 'Please select a rating before continuing.');
@@ -125,8 +125,14 @@ export default function AuditFormScreen({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
       <View style={styles.container}>
+        <Text style={{
+          color: colors.black,
+          fontSize: 22,
+          fontWeight: '600',
+          marginVertical: 12
+        }}>{strings.audit_form}</Text>
         <Text style={styles.stepTitle}>{strings.step} {step} of 3</Text>
         {renderStepContent()}
 
@@ -159,12 +165,21 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
 
   },
-  stepTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 16 },
-  label: { fontSize: 16, marginBottom: 8 },
+  stepTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 16
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 8
+  },
   input: {
-    borderWidth: 1, 
+    borderWidth: 1,
     padding: 10,
-    borderRadius: 6, marginBottom: 20, borderColor: '#aaa',
+    borderRadius: 6,
+    marginBottom: 20,
+    borderColor: '#aaa',
   },
   textArea: {
     height: 100,
@@ -187,9 +202,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginTop: 20
   },
-  notice: { marginTop: 20, color: '#888', fontStyle: 'italic', textAlign: 'center' },
   button: {
-    backgroundColor: '#0066cc',
+    backgroundColor: colors.royalBlue,
     paddingVertical: 14,
     paddingHorizontal: 30,
     borderRadius: 8,
@@ -198,10 +212,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   submitButton: {
-    backgroundColor: '#28a745',
+    backgroundColor: colors.green,
   },
   buttonText: {
-    color: '#fff',
+    color: colors.white,
     fontWeight: '600',
     fontSize: 16,
   },

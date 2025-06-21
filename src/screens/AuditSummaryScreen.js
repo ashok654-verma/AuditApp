@@ -21,17 +21,17 @@ export default function AuditSummaryScreen({ route, navigation }) {
   };
 
   return (
-    <SafeAreaView style={{flex : 1}}>
+    <SafeAreaView style={styles.flexStyle}>
 
       <View style={styles.container}>
         <Text style={styles.heading}>{strings.audit_summary}</Text>
         <Text style={styles.textStyle}>{strings.rating}: {audit.rating}</Text>
-        <Text style={styles.textStyle}>{strings.cleanliness}: {audit.checks?.cleanliness ? '✔' : '✘'}</Text>
-        <Text style={styles.textStyle}>Safety: {audit.checks?.safety ? '✔' : '✘'}</Text>
-        <Text style={styles.textStyle}>Compliance: {audit.checks?.compliance ? '✔' : '✘'}</Text>
+        <Text style={styles.textStyle}>{strings.cleanlines}: {audit.checks?.cleanliness ? '✔' : '✘'}</Text>
+        <Text style={styles.textStyle}>{strings.safety}: {audit.checks?.safety ? '✔' : '✘'}</Text>
+        <Text style={styles.textStyle}>{strings.compliance}: {audit.checks?.compliance ? '✔' : '✘'}</Text>
 
-        <Text style={styles.textStyle}>Comments: {audit.comments || '-'}</Text>
-        <Text style={styles.textStyle}>Time: {new Date(audit.timestamp).toLocaleString()}</Text>
+        <Text style={styles.textStyle}>{strings.comments}: {audit.comments || '-'}</Text>
+        <Text style={styles.textStyle}>{strings.time}: {new Date(audit.timestamp).toLocaleString()}</Text>
 
           <ActionButton
             title={'Back to History'}
@@ -58,5 +58,8 @@ const styles = StyleSheet.create({
     fontSize : 14,
     fontWeight : '500',
     padding : 4
+  },
+  flexStyle : {
+    flex : 1
   }
 });

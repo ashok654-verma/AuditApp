@@ -28,8 +28,8 @@ const Navigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
-    headerShown: false,
-  }} initialRouteName={initialScreen}>
+        headerShown: false,
+      }} initialRouteName={initialScreen}>
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="AuditForm" component={AuditFormScreen} />
         <Stack.Screen name="AuditSummary" component={AuditSummaryScreen} />

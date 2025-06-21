@@ -1,28 +1,38 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+/**
+ * Safely stores a value in AsyncStorage by always JSON stringifying it.
+ */
 export const storeData = async (key, value) => {
   try {
-    const data = typeof value === 'string' ? value : JSON.stringify(value);
-    await AsyncStorage.setItem(key, data);
+    const jsonValue = JSON.stringify(value); // ✅ Always stringify
+    await AsyncStorage.setItem(key, jsonValue);
   } catch (e) {
-    console.error('Store error', e);
+    console.error('Store error:', e);
   }
 };
 
+/**
+ * Safely retrieves and parses a value from AsyncStorage.
+ */
 export const getData = async (key) => {
   try {
-    const val = await AsyncStorage.getItem(key);
-    return val ? JSON.parse(val) : null;
+    const jsonValue = await AsyncStorage.getItem(key);
+    console.log(`🔍 Raw value for key "${key}":`, jsonValue);
+    return jsonValue != null ? JSON.parse(jsonValue) : null; 
   } catch (e) {
-    console.error('Get error', e);
+    console.error(` JSON parse error on key "${key}":`, e.message);
     return null;
   }
 };
 
+/**
+ * Removes a key from AsyncStorage.
+ */
 export const removeData = async (key) => {
-  try {
+  try { 
     await AsyncStorage.removeItem(key);
   } catch (e) {
-    console.error('Remove error', e);
+    console.error('Remove error:', e);
   }
 };
